@@ -1514,7 +1514,7 @@ static int cortex_m_step(struct target *target, int current,
 					LOG_TARGET_DEBUG(target, "Starting core to serve pending interrupts");
 					int64_t t_start = timeval_ms();
 					cortex_m_set_maskints_for_run(target);
-					cortex_m_write_debug_halt_mask(target, 0, C_HALT | C_STEP);
+					cortex_m_write_debug_halt_mask(target, C_HALT, C_STEP);
 
 					/* Wait for pending handlers to complete or timeout */
 					do {
